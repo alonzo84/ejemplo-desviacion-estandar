@@ -1,15 +1,9 @@
 import csv
 
-# Ruta del archivo .csv
-ruta_csv = 'datos.csv'
+# Leer archivo CSV de una sola columna
+with open('archivo.csv', newline='', encoding='utf-8') as archivo:
+    datos = [fila[0] for fila in csv.reader(archivo)]
 
-# Leer el CSV y guardarlo como una lista de listas
-datos = []
-with open(ruta_csv, newline='', encoding='utf-8') as archivo:
-    lector = csv.reader(archivo)
-    for fila in lector:
-        datos.append(fila)
+# Imprimir los primeros 5 elementos
+print(datos[:5])
 
-# Mostrar los primeros 5 registros
-for fila in datos[:5]:
-    print(fila)
